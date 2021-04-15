@@ -88,7 +88,12 @@ namespace ExcelWriter
 				xlWorkSheet.Cells[i, 1].value = data[i - 1].Item1;
 				xlWorkSheet.Cells[i, 2].value = data[i - 1].Item2;
 				xlWorkSheet.Cells[i, 3].value = data[i - 1].Item3;
-				xlWorkSheet.Cells[i, 4].value = data[i - 1].Item4;
+				if(i <= 12)
+				{
+					xlWorkSheet.Cells[i, 4].value = data[i - 1].Item2;
+					continue;
+				}
+				xlWorkSheet.Cells[i, 4].value = (float)((float)data[i - 1].Item2 / (float)data[i - 13].Item2);
 			}
 		}
 
